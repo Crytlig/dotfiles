@@ -21,3 +21,12 @@ _darcs
 ^/README.*
 ^/LICENSE.*
 ^/COPYING
+
+
+# Ignore Windows terminal and PowerShell profile
+.windows_terminal.json
+.psprofile
+
+# Ignore vscode
+vscode_keybindings.json
+
