@@ -1,6 +1,6 @@
 # Dotfiles
 
-The dotfiles are managed with stow for symlinking
+The dotfiles are managed with stow for symlinking.
 
 
 ## Clone
@@ -15,6 +15,23 @@ git clone --recursive https://github.com/Crytlig/dotfiles
 
 ```bash
 git submodule update --recursive --remote
+```
+
+
+## git-crypt
+
+Some files are encrypted with git-crypt
+
+```bash
+git-crypt status
+```
+
+```bash
+git-crypt lock
+```
+
+```bash
+git-crypt unlock ~/git-crypt-key
 ```
 
 
