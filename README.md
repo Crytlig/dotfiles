@@ -30,15 +30,22 @@ git-crypt status
 git-crypt lock
 ```
 
-Use either the krypt key
+## Import keys
+
+Import the public and private keys
+
+```bash
+gpg --import gpg-pub.asc
+gpg --import gpg-sc.asc
+```
+
+```bash
+git-crypt unlock
+```
+
+or use the crypt key
 
 ```bash
 git-crypt unlock ~/git-crypt-key
 ```
-
-Or export the GPG key and use that
-
-
-
-
 
