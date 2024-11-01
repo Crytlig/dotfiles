@@ -30,9 +30,14 @@ git-crypt status
 git-crypt lock
 ```
 
+Use either the krypt key
+
 ```bash
 git-crypt unlock ~/git-crypt-key
 ```
+
+Or export the GPG key and use that
+
 
 
 
