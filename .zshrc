@@ -70,6 +70,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#a8a8a6'
 
 # Other exports
 export EDITOR=nvim
+export PATH=$PATH:/home/cliff/bin
 export PATH=$PATH:/home/cliff/.tools
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/home/$USER/go/bin/
@@ -102,4 +103,6 @@ eval "$(starship init zsh)"
 # WSL
 # complete -o nospace -C /home/cliff/.asdf/installs/terraform/1.6.6/bin/terraform terraform
 
-export PATH=$PATH:/home/cliff/bin
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi

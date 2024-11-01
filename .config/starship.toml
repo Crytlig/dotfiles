@@ -11,9 +11,8 @@ $git_status\
 $character
 """
 
-# Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
-success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+success_symbol = '[>](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
 
 # Disable the package module, hiding it from the prompt completely
 [package]
@@ -39,13 +38,13 @@ AZ-AS-SUB-EX-N-SEQ02966-DEV = "02966 (nextra)"
 AZ-AS-SUB-EX-N-SEQ01561-DE-Deployment-Engine-DEV = "01561 (deng)"
 AZ-AS-SUB-EX-N-SEQ02332-DE-Deployment-Engine-DEV = "2332 (cptci)"
 
-[kubernetes]
-format = '[⛵($cluster in )$context \($namespace\)]($style) | '
-disabled = false
-style = "dimmed green"
-contexts = [
-  { context_pattern = "dev.local.cluster.k8s", style = "green", symbol = "💔 " },
-]
+# [kubernetes]
+# format = '[⛵($cluster in )$context \($namespace\)]($style) | '
+# disabled = false
+# style = "dimmed green"
+# contexts = [
+#   { context_pattern = "dev.local.cluster.k8s", style = "green", symbol = "💔 " },
+# ]
 
 [terraform]
 disabled = true
