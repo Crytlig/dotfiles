@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 ## Terraform
+alias tf='terraform'
 alias tfi='terraform init'
 alias tfp='terraform plan'
 alias tfip='terraform init && terraform plan'
@@ -11,19 +12,18 @@ alias tfda='terraform destroy -auto-approve'
 alias tfc='terraform console'
 
 ## Terragrunt
-alias tgadir="terragrunt run-all apply --terragrunt-ignore-external-dependencies --terragrunt-non-interactive" 
-alias tgddir="terragrunt run-all destroy --terragrunt-ignore-external-dependencies --terragrunt-non-interactive" 
+alias tg='terragrunt'
+alias tgadir="terragrunt run-all apply --terragrunt-ignore-external-dependencies --terragrunt-non-interactive"
+alias tgddir="terragrunt run-all destroy --terragrunt-ignore-external-dependencies --terragrunt-non-interactive"
 alias tgpdir="terragrunt run-all plan --terragrunt-ignore-external-dependencies --terragrunt-non-interactive"
 
 myip() {
   local ip=$(curl -s icanhazip.com)
 
-  # Check if on Linux (WSL)
-  if [ -f /etc/os-release ]; then
+  if [ $(uname) = "Darwin" ]; then
+    echo $ip | tee >(pbcopy)
+  else
     echo "$ip" | tee >(xclip -selection clipboard)
-  # Check if on MacOS
-  elif [ -f /usr/bin/sw_vers ]; then
-    echo "$ip" | pbcopy
   fi
 }
 

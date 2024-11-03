@@ -40,8 +40,6 @@ alias conf="nvim ~/.zshrc"
 alias kns='kubectl ns'
 alias ktx='kubectl ctx'
 
-
-
 # Make fzf default to ripgrep
 if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files'
@@ -57,16 +55,14 @@ HISTFILE=~/.zsh_history
 #complete -F __start_terraform tf
 #complete -F __start_kubectl k
 
-
 # Change comment style from dark blue to green
 #ZSH_HIGHLIGHT_STYLES[comment]=fg=green,bold
-# Change suggestion highlight style
-# WSL
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#555555'
-
-# MacOS
-ZSH_HIGHLIGHT_STYLES[comment]=fg=green,bold
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#a8a8a6'
+if [ $(uname) = "Darwin" ]; then
+	ZSH_HIGHLIGHT_STYLES[comment]=fg=green,bold
+	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#a8a8a6'
+else
+	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#555555'
+fi
 
 # Other exports
 export EDITOR=nvim
@@ -81,9 +77,6 @@ export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
 ## WSL
 # export PATH=$PATH:"/mnt/c/Users/ClaesRytlig/AppData/Local/Programs/Microsoft VS Code/bin"
 # export PATH=$PATH:"/mnt/c/Windows/System32"
-#
-# MacOS
-# export GOBIN=/opt/homebrew/bin/
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -91,17 +84,11 @@ export NVM_DIR="$HOME/.nvm"
 
 autoload -U +X bashcompinit && bashcompinit
 
-# Initialize asdf
-# . "$HOME/.asdf/asdf.sh"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 complete -o nospace -C ~/tools/terragrunt terragrunt
 
 eval "$(starship init zsh)"
-
-# WSL
-# complete -o nospace -C /home/cliff/.asdf/installs/terraform/1.6.6/bin/terraform terraform
 
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'

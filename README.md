@@ -49,3 +49,18 @@ or use the crypt key
 git-crypt unlock ~/git-crypt-key
 ```
 
+
+## Flake
+
+Any extra arguments to mkProfile are forwarded directly to pkgs.buildEnv.
+
+### Usage:
+Switch to this flake:
+
+`nix run ~/dotfiles/#dev.switch`
+
+Revert a dev change (note: does not revert pins):
+`nix run ~/dotfiles/#dev.rollback`
+
+Build, without switching:
+`nix build ~/dotfiles/#dev`
