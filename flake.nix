@@ -29,10 +29,10 @@
             tldr
             starship
             neovim
+            bat
             tree
             jq
             gh
-            azure-cli
             kubectl
             docker
             go
