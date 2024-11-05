@@ -26,6 +26,17 @@
             terraform
             terragrunt
             ripgrep
+            tldr
+            starship
+            neovim
+            tree
+            jq
+            gh
+            azure-cli
+            kubectl
+            docker
+            go
+            gopls
           ];
         };
       });
