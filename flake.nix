@@ -29,10 +29,17 @@
             tldr
             starship
             neovim
+            lua
+            tree-sitter
             bat
             tree
             jq
             gh
+            fzf
+            direnv
+            docker_27
+            ffmpeg
+            lazygit
             kubectl
             docker
             go
