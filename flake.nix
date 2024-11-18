@@ -44,6 +44,9 @@
             docker
             go
             gopls
+            rustc
+            rustup
+            cargo-watch
           ];
         };
       });
