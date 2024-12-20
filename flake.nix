@@ -41,6 +41,7 @@
             ffmpeg
             lazygit
             kubectl
+            typescript
             docker
             go
             gopls
