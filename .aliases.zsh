@@ -18,7 +18,7 @@ alias tgddir="terragrunt run-all destroy --terragrunt-ignore-external-dependenci
 alias tgpdir="terragrunt run-all plan --terragrunt-ignore-external-dependencies --terragrunt-non-interactive"
 
 ## Python.. Duh
-alias py=python3
+alias py=python3.13
 
 myip() {
   local ip=$(curl -s icanhazip.com)
