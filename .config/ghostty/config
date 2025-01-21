@@ -1,0 +1,20 @@
+# Unbind default open in fullscreen
+keybind = super+enter=unbind
+
+# Split nav
+# Unbind defaults
+keybind = super+opt+right=unbind
+keybind = super+opt+left=unbind
+keybind = super+opt+up=unbind
+keybind = super+opt+down=unbind
+
+keybind = opt+right=goto_split:right
+keybind = opt+left=goto_split:left
+keybind = opt+up=goto_split:top
+keybind = opt+down=goto_split:bottom
+
+# Increase split resizing
+keybind = super+ctrl+right=resize_split:right,20
+keybind = super+ctrl+left=resize_split:left,20
+keybind = super+ctrl+up=resize_split:up,20
+keybind = super+ctrl+down=resize_split:down,20
