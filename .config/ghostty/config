@@ -1,6 +1,8 @@
 # Unbind default open in fullscreen
 keybind = super+enter=unbind
 
+keybind = global:cmd+grave_accent=toggle_quick_terminal
+
 # Split nav
 # Unbind defaults
 keybind = super+opt+right=unbind
