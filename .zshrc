@@ -20,6 +20,10 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 # source ~/.openai
 source ~/.aliases.zsh
+
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename "$HOME/.zshrc"
@@ -87,9 +91,4 @@ autoload -U +X bashcompinit && bashcompinit
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 complete -o nospace -C ~/tools/terragrunt terragrunt
-
 eval "$(starship init zsh)"
-
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
