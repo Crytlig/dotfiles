@@ -35,6 +35,9 @@ myip() {
 alias standup='nv ~/repos/next/documents/stand_up'
 alias prcom='nv ~/repos/next/documents/pr_coments'
 
+# Delete resource group by piping to fzf
+alias delrg="az group list -o tsv --query '[].name' | fzf | xargs -I {} az group delete -n {} -y --no-wait"
+
 
 delete_workflow_runs() {
     set -eo pipefail

@@ -23,6 +23,7 @@
           paths = with pkgs; [
             # reference a pinned package like so
             # inputs.terragrunt.legacyPackages.${system}.terragrunt 
+            gnupg
             terraform
             terragrunt
             ripgrep
