@@ -34,3 +34,4 @@ vscode_keybindings.json
 flake.nix
 flake.lock
 
+# Ignore gitconfig. It's werid stowing something that's encrypted
