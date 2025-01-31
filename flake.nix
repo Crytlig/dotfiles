@@ -26,6 +26,7 @@
             gnupg
             terraform
             terragrunt
+            terraform-docs
             ripgrep
             tldr
             starship
