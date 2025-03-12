@@ -92,3 +92,6 @@ autoload -U +X bashcompinit && bashcompinit
 
 complete -o nospace -C ~/tools/terragrunt terragrunt
 eval "$(starship init zsh)"
+
+# Added by Windsurf
+export PATH="/Users/cliff/.codeium/windsurf/bin:$PATH"
