@@ -46,6 +46,7 @@
             typescript
             docker
             go
+            air
             gopls
             rustc
             rustup

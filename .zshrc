@@ -70,9 +70,10 @@ fi
 
 # Other exports
 export EDITOR=nvim
-export PATH=$PATH:/home/cliff/bin
-export PATH=$PATH:/home/cliff/.tools
+export PATH=$PATH:/home/$USER/bin
+export PATH=$PATH:/home/$USER/.tools
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/$USER/.local/bin:$PATH
 export PATH=$PATH:/home/$USER/go/bin/
 export PATH=$PATH:/home/$USER/.tools
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -95,3 +96,5 @@ eval "$(starship init zsh)"
 
 # Added by Windsurf
 export PATH="/Users/cliff/.codeium/windsurf/bin:$PATH"
+
+. "$HOME/.local/bin/env"
