@@ -47,6 +47,7 @@
             docker
             go
             air
+            templ
             gopls
             rustc
             rustup

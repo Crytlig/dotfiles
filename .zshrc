@@ -52,8 +52,8 @@ fi
 
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=5000
+SAVEHIST=5000
 HISTFILE=~/.zsh_history
 
 #complete -F __start_terraform tf
@@ -89,12 +89,5 @@ export NVM_DIR="$HOME/.nvm"
 
 autoload -U +X bashcompinit && bashcompinit
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 complete -o nospace -C ~/tools/terragrunt terragrunt
 eval "$(starship init zsh)"
-
-# Added by Windsurf
-export PATH="/Users/cliff/.codeium/windsurf/bin:$PATH"
-
-. "$HOME/.local/bin/env"
