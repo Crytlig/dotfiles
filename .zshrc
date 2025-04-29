@@ -66,6 +66,7 @@ if [ $(uname) = "Darwin" ]; then
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#a8a8a6'
 else
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#555555'
+	export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 fi
 
 # Other exports
