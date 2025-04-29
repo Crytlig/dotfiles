@@ -38,6 +38,10 @@ alias prcom='nv ~/repos/next/documents/pr_coments'
 # Delete resource group by piping to fzf
 alias delrg="az group list -o tsv --query '[].name' | fzf | xargs -I {} az group delete -n {} -y --no-wait"
 
+# danger zone
+alias gagacp='ga . && gc --amend --no-edit && gpf'
+alias gagac='ga . && gc --amend --no-edit '
+
 
 delete_workflow_runs() {
     set -eo pipefail
@@ -77,21 +81,25 @@ tmdef() {
     if [ $? != 0 ]
     then
         tmux new-session -s $session -n zsh -d
-        tmux send-keys -t $session:zsh
+        tmux send-keys -t $session:zsh 
 
-        tmux new-window -t $session:1 -n tf-mods
-        mods=$(find ~/repos -type d -name '*terraform-modules')
-        tmux send-keys -t $session:1 "cd $mods" C-m
+        tmux new-window -t $session:2 -n tf-mods
+        mods=$(find ~/repos/shell -type d -name '*terraform-modules')
+        tmux send-keys -t $session:2 "cd $mods" C-m
+        
+        tmux new-window -t $session:3 -n connectivity
+        con=$(find ~/repos/shell -type d -name '*platform-connectivity')
+        tmux send-keys -t $session:3 "cd $con" C-m
 
-        tmux new-window -t $session:2 -n connectivity
-        con=$(find ~/repos -type d -name '*platform-connectivity')
-        tmux send-keys -t $session:2 "cd $con" C-m
+        tmux new-window -t $session:4 -n workflows
+        wf=$(find ~/repos/shell -type d -name '*platform-workflows')
+        tmux send-keys -t $session:4 "cd $wf" C-m
 
-        tmux new-window -t $session:3 -n nextra
-        be=$(find ~/repos -type d -name '*nextra-backend')
-        tmux send-keys -t $session:3 "cd $be" C-m
+        tmux new-window -t $session:5 -n runners
+        run=$(find ~/repos/shell/ -type d -name '*vm-ghrunners')
+        tmux send-keys -t $session:5 "cd $run" C-m
 
     fi
 
-    tmux attach -t $session
+    tmux attach -t $session:1
 }
