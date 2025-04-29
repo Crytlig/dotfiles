@@ -89,5 +89,8 @@ export NVM_DIR="$HOME/.nvm"
 
 autoload -U +X bashcompinit && bashcompinit
 
-complete -o nospace -C ~/tools/terragrunt terragrunt
+if command -v asdf >/dev/null 2>&1; then
+	. "$HOME/.asdf/asdf.sh"
+fi;
+
 eval "$(starship init zsh)"
