@@ -71,11 +71,11 @@ fi
 # Other exports
 export EDITOR=nvim
 export PATH=$PATH:/home/$USER/bin
-export PATH=$PATH:/home/$USER/.tools
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/$USER/.local/bin:$PATH
-export PATH=$PATH:/home/$USER/go/bin/
-export PATH=$PATH:/home/$USER/.tools
+export PATH=$PATH:~/go/bin/
+export PATH=$PATH:~/.tools
+export PATH=$PATH:~/tools
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
