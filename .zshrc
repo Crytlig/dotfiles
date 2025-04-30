@@ -66,6 +66,7 @@ if [ $(uname) = "Darwin" ]; then
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#a8a8a6'
 else
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#555555'
+	export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 fi
 
 # Other exports
@@ -89,5 +90,8 @@ export NVM_DIR="$HOME/.nvm"
 
 autoload -U +X bashcompinit && bashcompinit
 
-complete -o nospace -C ~/tools/terragrunt terragrunt
+if command -v asdf >/dev/null 2>&1; then
+	. "$HOME/.asdf/asdf.sh"
+fi;
+
 eval "$(starship init zsh)"
