@@ -44,6 +44,7 @@ alias conf="nvim ~/.zshrc"
 alias kns='kubectl ns'
 alias ktx='kubectl ctx'
 
+
 # Make fzf default to ripgrep
 if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files'
@@ -66,7 +67,8 @@ if [ $(uname) = "Darwin" ]; then
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#a8a8a6'
 else
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#555555'
-	export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+	ASDF_DATA_DIR="~/.asdf"
+	export PATH="$ASDF_DATA_DIR/shims:$PATH"
 fi
 
 # Other exports
@@ -75,7 +77,6 @@ export PATH=$PATH:/home/$USER/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/$USER/.local/bin:$PATH
 export PATH=$PATH:~/go/bin/
-export PATH=$PATH:~/.tools
 export PATH=$PATH:~/tools
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export DOTNET_ROOT=$HOME/.dotnet
@@ -89,9 +90,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 autoload -U +X bashcompinit && bashcompinit
-
-if command -v asdf >/dev/null 2>&1; then
-	. "$HOME/.asdf/asdf.sh"
-fi;
 
 eval "$(starship init zsh)"
