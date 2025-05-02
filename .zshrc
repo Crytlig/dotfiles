@@ -62,13 +62,12 @@ HISTFILE=~/.zsh_history
 
 # Change comment style from dark blue to green
 #ZSH_HIGHLIGHT_STYLES[comment]=fg=green,bold
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#555555'
+
+
 if [ $(uname) = "Darwin" ]; then
 	ZSH_HIGHLIGHT_STYLES[comment]=fg=green,bold
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#a8a8a6'
-else
-	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#555555'
-	ASDF_DATA_DIR="~/.asdf"
-	export PATH="$ASDF_DATA_DIR/shims:$PATH"
 fi
 
 # Other exports
@@ -78,9 +77,10 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/$USER/.local/bin:$PATH
 export PATH=$PATH:~/go/bin/
 export PATH=$PATH:~/tools
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
+#
 ## WSL
 # export PATH=$PATH:"/mnt/c/Users/ClaesRytlig/AppData/Local/Programs/Microsoft VS Code/bin"
 # export PATH=$PATH:"/mnt/c/Windows/System32"
