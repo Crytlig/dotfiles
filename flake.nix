@@ -51,6 +51,7 @@
             gopls
             rustc
             rustup
+            cargo
             cargo-watch
           ];
         };
