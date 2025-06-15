@@ -52,6 +52,8 @@
             rustc
             rustup
             cargo-watch
+            sqlite
+            pack
           ];
         };
       });

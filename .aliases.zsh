@@ -20,6 +20,11 @@ alias tgpdir="terragrunt run-all plan --terragrunt-ignore-external-dependencies 
 ## Python.. Duh
 alias py=python3.13
 
+# container-use. Name collision on ancient tool in /usr/bin/cu on OSX
+alias cuse=~/tools/cuse
+alias claude-yolo="~/.claude/local/claude --dangerously-skip-permissions"
+alias claude="~/.claude/local/claude"
+
 myip() {
   local ip=$(curl -s icanhazip.com)
 

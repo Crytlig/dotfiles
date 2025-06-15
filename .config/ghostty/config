@@ -20,3 +20,4 @@ keybind = super+ctrl+right=resize_split:right,20
 keybind = super+ctrl+left=resize_split:left,20
 keybind = super+ctrl+up=resize_split:up,20
 keybind = super+ctrl+down=resize_split:down,20
+keybind = shift+enter=text:\n
