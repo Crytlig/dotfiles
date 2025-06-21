@@ -39,7 +39,7 @@
             gh
             fzf
             direnv
-            docker_27
+            docker_28
             ffmpeg
             lazygit
             kubectl
