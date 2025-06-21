@@ -54,6 +54,7 @@
             cargo-watch
             sqlite
             pack
+            just
           ];
         };
       });
