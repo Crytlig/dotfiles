@@ -29,6 +29,7 @@
             terraform-docs
             ripgrep
             tldr
+            tmux
             starship
             neovim
             lua
@@ -39,7 +40,7 @@
             gh
             fzf
             direnv
-            docker_28
+            docker_2
             ffmpeg
             lazygit
             kubectl
