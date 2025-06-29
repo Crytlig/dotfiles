@@ -30,6 +30,7 @@
             ripgrep
             tldr
             tmux
+            zellij
             starship
             neovim
             lua
