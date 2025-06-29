@@ -72,15 +72,14 @@ fi
 
 # Other exports
 export EDITOR=nvim
-export PATH=$PATH:/home/$USER/bin
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:~/$USER/.local/bin:$PATH
-export PATH=$PATH:~/go/bin/
-export PATH=$PATH:~/tools
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$HOME/tools"
+export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$HOME/go/bin"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-export DOTNET_ROOT=$HOME/.dotnet
-export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
-#
+
 ## WSL
 # export PATH=$PATH:"/mnt/c/Users/ClaesRytlig/AppData/Local/Programs/Microsoft VS Code/bin"
 # export PATH=$PATH:"/mnt/c/Windows/System32"
