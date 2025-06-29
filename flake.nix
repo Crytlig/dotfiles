@@ -29,7 +29,6 @@
             terraform-docs
             ripgrep
             tldr
-            tmux
             zellij
             starship
             neovim
