@@ -1,4 +1,6 @@
 
+# ignore build result from nix
+result
 
 # Ignore any gpg keys
 *.asc
