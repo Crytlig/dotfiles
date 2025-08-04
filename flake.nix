@@ -41,6 +41,8 @@
             fzf
             direnv
             docker_28
+            postgresql_18
+            pgadmin4-desktopmode
             ffmpeg
             lazygit
             kubectl

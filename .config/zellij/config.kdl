@@ -149,7 +149,7 @@ keybinds clear-defaults=true {
         bind "Alt =" { Resize "Increase"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
-        bind "Alt f" { ToggleFloatingPanes; }
+        bind "F7" { ToggleFloatingPanes; }
         // bind "Alt h" { MoveFocus "left"; }
         // bind "Alt k" { MoveFocus "up"; }
         // bind "Alt j" { MoveFocus "down"; }
