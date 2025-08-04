@@ -5,11 +5,12 @@
     flakey-profile.url = "github:lf-/flakey-profile";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    nix-ai-tools.url = "github:numtide/nix-ai-tools";
     # Pin a specific version like below. Find shas and versions from https://www.nixhub.io/
     # terragrunt.url = "github:nixos/nixpkgs/785feb91183a50959823ff9ba9ef673105259cd5";
   };
 
-  outputs = { self, nixpkgs, flake-utils, flakey-profile, ...}@inputs:
+  outputs = { self, nixpkgs, flake-utils, flakey-profile, nix-ai-tools, ...}@inputs:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
@@ -58,6 +59,8 @@
             sqlite
             pack
             just
+          ] ++ [
+            nix-ai-tools.packages.${system}.crush
           ];
         };
       });
