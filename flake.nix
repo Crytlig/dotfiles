@@ -60,6 +60,7 @@
             pack
             just
             ruff
+            mypy
           ] ++ [
             nix-ai-tools.packages.${system}.crush
           ];
