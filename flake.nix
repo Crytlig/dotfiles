@@ -59,6 +59,7 @@
             sqlite
             pack
             just
+            ruff
           ] ++ [
             nix-ai-tools.packages.${system}.crush
           ];
