@@ -59,7 +59,9 @@
             sqlite
             pack
             just
+            python313
             ruff
+            uv
             mypy
 	          azure-cli
           ] ++ [
