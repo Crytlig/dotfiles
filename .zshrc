@@ -15,6 +15,7 @@ plugins=(
 	zsh-autosuggestions
 	zsh-interactive-cd
 	zsh-fzf-history-search
+	vscode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -35,6 +36,7 @@ export PAGER=cat
 
 # End of lines added by compinstall
 #
+VSCODE=code-insiders
 # For a full list of active aliases, run `alias`.
 alias lg=lazygit
 alias nv=nvim
