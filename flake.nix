@@ -33,6 +33,8 @@
             zellij
             starship
             neovim
+            # npm for neovim LSPs
+            nodejs_24
             lua
             tree-sitter
             bat
