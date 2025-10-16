@@ -46,6 +46,7 @@
             pgadmin4-desktopmode
             ffmpeg
             lazygit
+            lazydocker
             kubectl
             typescript
             docker
