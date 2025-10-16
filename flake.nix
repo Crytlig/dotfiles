@@ -64,7 +64,7 @@
             ruff
             uv
             mypy
-	          azure-cli
+	          # azure-cli
           ] ++ [
             nix-ai-tools.packages.${system}.crush
           ];
