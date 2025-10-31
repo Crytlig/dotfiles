@@ -46,6 +46,9 @@ alias conf="nvim ~/.zshrc"
 alias kns='kubectl ns'
 alias ktx='kubectl ctx'
 
+if [ $(uname -o) = "GNU/Linux" ]; then
+	alias docker='/Docker/host/bin/docker.exe'
+fi
 
 # Make fzf default to ripgrep
 if type rg &> /dev/null; then
@@ -81,7 +84,6 @@ export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/go/bin"
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 ## WSL
 # export PATH=$PATH:"/mnt/c/Users/ClaesRytlig/AppData/Local/Programs/Microsoft VS Code/bin"
 # export PATH=$PATH:"/mnt/c/Windows/System32"
