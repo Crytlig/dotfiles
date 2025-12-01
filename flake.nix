@@ -30,7 +30,6 @@
             terraform-docs
             ripgrep
             tldr
-            zellij
             starship
             neovim
             # npm for neovim LSPs
