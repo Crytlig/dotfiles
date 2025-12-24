@@ -34,6 +34,7 @@
             neovim
             # npm for neovim LSPs
             nodejs_24
+            tailwindcss_4
             lua
             tree-sitter
             bat
