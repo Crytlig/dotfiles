@@ -43,8 +43,8 @@ alias nv=nvim
 alias k=kubectl
 alias tf=terraform
 alias conf="nvim ~/.zshrc"
-alias kns='kubectl ns'
-alias ktx='kubectl ctx'
+alias kns='kubens'
+alias ktx='kubectx'
 
 if [ $(uname -o) = "GNU/Linux" ]; then
 	alias docker='/Docker/host/bin/docker.exe'

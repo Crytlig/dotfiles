@@ -66,6 +66,8 @@
             ruff
             uv
             mypy
+            k9s
+            kubectx
 	          # azure-cli
           ] ++ [
             nix-ai-tools.packages.${system}.crush
