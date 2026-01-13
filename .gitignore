@@ -7,3 +7,6 @@ result
 
 # Crush directory
 .crush
+
+# crypt
+.git-crypt-key.b64
