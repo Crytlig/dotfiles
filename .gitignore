@@ -10,3 +10,6 @@ result
 
 # crypt
 .git-crypt-key.b64
+
+.oh-my-zsh/
+!.oh-my-zsh/custom/
