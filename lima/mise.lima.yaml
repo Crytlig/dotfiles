@@ -1,0 +1,160 @@
+minimumLimaVersion: 2.0.0
+
+# 🟢 Builtin default: "vz" (on macOS 13.5 and later), "qemu" (on others)
+vmType: null
+
+# Arch: "default", "x86_64", "aarch64".
+# 🟢 Builtin default: "default" (corresponds to the host architecture)
+arch: null
+
+# OpenStack-compatible disk image.
+# Each image has a `location` URL for the disk image, an `arch` setting, and an optional `digest`.
+# 🟢 Builtin default: none (must be specified)
+# 🔵 This file: Ubuntu images (inherited via the `base` mechanism later in this file)
+images:
+  # Try to use release-yyyyMMdd image if available. Note that release-yyyyMMdd will be removed after several months.
+
+  - location: "https://cloud-images.ubuntu.com/releases/questing/release-20251212/ubuntu-25.10-server-cloudimg-amd64.img"
+    arch: "x86_64"
+    digest: "sha256:3d0977875af04e32a0eb176d73e7164df18cd774a8e0a51605584627490837a1"
+  - location: "https://cloud-images.ubuntu.com/releases/questing/release-20251212/ubuntu-25.10-server-cloudimg-arm64.img"
+    arch: "aarch64"
+    digest: "sha256:ec93c8acae3e7630daf723e31716703639417d86b87eb6962f3a0003d1045c15"
+  - location: "https://cloud-images.ubuntu.com/releases/questing/release-20251212/ubuntu-25.10-server-cloudimg-riscv64.img"
+    arch: "riscv64"
+    digest: "sha256:7dd6b84ff53fe5ba4bff54ff8f3dc9c201db95eca47f84cf6c54ca040dcbe33c"
+  - location: "https://cloud-images.ubuntu.com/releases/questing/release-20251212/ubuntu-25.10-server-cloudimg-armhf.img"
+    arch: "armv7l"
+    digest: "sha256:6f869eda5ef8b5bdc6b042efd0c3253feb7f82f157d15ad08f2964ab94266a70"
+  - location: "https://cloud-images.ubuntu.com/releases/questing/release-20251212/ubuntu-25.10-server-cloudimg-s390x.img"
+    arch: "s390x"
+    digest: "sha256:459d6909ec1e6b1154bbd82abd7da7b7d0ad7226079cc7cb8215158d0f14856e"
+  - location: "https://cloud-images.ubuntu.com/releases/questing/release-20251212/ubuntu-25.10-server-cloudimg-ppc64el.img"
+    arch: "ppc64le"
+    digest: "sha256:2dff4c9468ddaa57089188c7e50649bf6f6fdbbe853af083bf5d3a0f10cdbba9"
+  # Fallback to the latest release image.
+  # Hint: run `limactl prune` to invalidate the cache
+
+  - location: https://cloud-images.ubuntu.com/releases/questing/release/ubuntu-25.10-server-cloudimg-amd64.img
+    arch: x86_64
+
+  - location: https://cloud-images.ubuntu.com/releases/questing/release/ubuntu-25.10-server-cloudimg-arm64.img
+    arch: aarch64
+
+  - location: https://cloud-images.ubuntu.com/releases/questing/release/ubuntu-25.10-server-cloudimg-riscv64.img
+    arch: riscv64
+
+  - location: https://cloud-images.ubuntu.com/releases/questing/release/ubuntu-25.10-server-cloudimg-armhf.img
+    arch: armv7l
+
+  - location: https://cloud-images.ubuntu.com/releases/questing/release/ubuntu-25.10-server-cloudimg-s390x.img
+    arch: s390x
+
+  - location: https://cloud-images.ubuntu.com/releases/questing/release/ubuntu-25.10-server-cloudimg-ppc64el.img
+    arch: ppc64le
+
+# CPUs
+# 🟢 Builtin default: min(4, host CPU cores)
+cpus: null
+
+# Memory size
+# 🟢 Builtin default: min("4GiB", half of host memory)
+memory: null
+disk: "30GiB"
+
+# Expose host directories to the guest, the mount point might be accessible from all UIDs in the guest
+# "location" can use these template variables: {{.Home}}, {{.Dir}}, {{.Name}}, {{.UID}}, {{.User}}, {{.Param.Key}},
+# {{.GlobalTempDir}}, and {{.TempDir}}. The global temp dir is always "/tmp" on Unix.
+# "mountPoint" can use these template variables: {{.Home}}, {{.Name}}, {{.Hostname}}, {{.UID}}, {{.User}}, and {{.Param.Key}}.
+# mounts:
+#   - location: "/Users/cliff/repos/lima-test/"
+#     mountPoint: "/Users/cliff/repos/lima-test/"
+#     writable: true
+
+# User to be used inside the VM
+user:
+  # User name. An explicitly specified username is not validated by Lima.
+  # 🟢 Builtin default: same as the host username, if it is a valid Linux username, otherwise "lima"
+  name: null
+  # Full name or display name of the user.
+  # 🟢 Builtin default: user information from the host
+  comment: null
+  # Numeric user id. It is not currently possible to specify a group id.
+  # 🟢 Builtin default: same as the host user id of the current user (NOT a lookup of the specified "username").
+  uid: null
+  # Home directory inside the VM, NOT the mounted home directory of the host.
+  # It can use the following template variables: {{.Name}}, {{.Hostname}}, {{.UID}}, {{.User}}, and {{.Param.Key}}.
+  # 🟢 Builtin default: "/home/{{.User}}.linux"
+  home: null
+  # Shell. Needs to be an absolute path.
+  # 🟢 Builtin default: "/bin/bash"
+  shell: null
+
+containerd:
+  system: false
+  user: false
+
+provision:
+  - mode: system
+    script: |
+      #!/bin/bash
+      set -eux -o pipefail
+      command -v mise >/dev/null 2>&1 && exit 0
+      export DEBIAN_FRONTEND=noninteractive
+
+      apt-get install -y curl git build-essential
+
+  - mode: user
+    script: |
+      #!/bin/bash
+      set -eu -o pipefail
+
+      curl https://mise.run | sh
+
+      echo 'eval "$(~/.local/bin/mise activate bash)"' >> ~/.bashrc
+      ~/.local/bin/mise --version
+
+  - mode: data
+    path: "{{.Home}}/.config/mise/config.toml"
+    content: |
+      [tools]
+      neovim = "latest"
+      tree-sitter = "latest"
+      terraform = "v1.14.4"
+      ripgrep = "latest"
+      node = "latest"
+      lua = "latest"
+      opencode = "1.1.53"
+      gh = "latest"
+      fzf = "latest"
+      jq = "latest"
+      direnv = "latest"
+      docker-cli = "latest"
+    owner: "cliff:cliff"
+    permissions: 644
+    overwrite: false
+
+probes:
+  - script: |
+      #!/bin/bash
+      set -eux -o pipefail
+      for i in {1..10}; do
+        if ! command -v mise >/dev/null 2>&1; then
+          echo >&2 "mise not install yet"
+          sleep 3
+          continue
+        else
+          echo "mise installed"
+        fi;
+      done
+    hint: |
+      mise was not installed in the guest. Check the provisioning logs.
+      See "/var/log/cloud-init-output.log" in the guest for details.
+message: |
+  To get started:
+    limactl shell mise
+
+  Then you can use mise commands:
+    mise --version
+    mise use node@20
+    mise install
