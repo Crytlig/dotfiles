@@ -68,6 +68,7 @@
             mypy
             k9s
             kubectx
+            gum
 	          # azure-cli
           ] ++ [
             nix-ai-tools.packages.${system}.crush

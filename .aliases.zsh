@@ -20,10 +20,6 @@ alias tgpdir="terragrunt run-all plan --terragrunt-ignore-external-dependencies 
 ## Python.. Duh
 alias py=python3.13
 
-# container-use. Name collision on ancient tool in /usr/bin/cu on OSX
-alias cuse=~/tools/cuse
-alias claude-yolo="~/.claude/local/claude --dangerously-skip-permissions"
-alias claude="~/.claude/local/claude"
 
 myip() {
   local ip=$(curl -s icanhazip.com)
@@ -57,6 +53,7 @@ delete_workflow_runs() {
     owner_repo=$(gh repo view --json owner,name -q '.owner.login + "/" + .name') || error_exit "Failed to fetch repository information."
     owner=$(echo "$owner_repo" | cut -d'/' -f1) || error_exit "Failed to extract owner."
     repo=$(echo "$owner_repo" | cut -d'/' -f2) || error_exit "Failed to extract repository name."
+
 
     workflows=$(gh workflow list --json name,id) || error_exit "Failed to retrieve workflows."
     workflow_name=$(echo "$workflows" | jq -r '.[].name' | gum choose) || error_exit "Workflow selection failed."

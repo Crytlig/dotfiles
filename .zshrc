@@ -46,9 +46,9 @@ alias conf="nvim ~/.zshrc"
 alias kns='kubens'
 alias ktx='kubectx'
 
-if [ $(uname -o) = "GNU/Linux" ]; then
-	alias docker='/Docker/host/bin/docker.exe'
-fi
+# if [ $(uname -o) = "GNU/Linux" ]; then
+# 	alias docker='/Docker/host/bin/docker.exe'
+# fi
 
 # Make fzf default to ripgrep
 if type rg &> /dev/null; then
@@ -75,6 +75,26 @@ if [ $(uname) = "Darwin" ]; then
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#a8a8a6'
 fi
 
+
+pm() {
+  if [[ $# -gt 0 ]]; then
+    cd "$(pathmarks guess "$1")"
+    return
+  fi
+
+  local p
+  p="$(pathmarks pick)"
+  if [[ -n "$p" ]]; then cd "$p"; fi
+}
+
+alias pms="pathmarks save"
+
+# Completion: suggest names from `pathmarks list`
+_pm() {
+  compadd -- $(pathmarks list)
+}
+compdef _pm pm
+
 # Other exports
 export EDITOR=nvim
 
@@ -97,3 +117,4 @@ export NVM_DIR="$HOME/.nvm"
 autoload -U +X bashcompinit && bashcompinit
 
 eval "$(starship init zsh)"
+export PATH="/home/cliff/tools/bin:$PATH"
