@@ -70,8 +70,6 @@
             kubectx
             gum
 	          # azure-cli
-          ] ++ [
-            nix-ai-tools.packages.${system}.crush
           ];
         };
       });
