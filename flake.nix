@@ -43,7 +43,7 @@
             gh
             fzf
             direnv
-            docker_28
+            docker_29
             postgresql_18
             pgadmin4-desktopmode
             ffmpeg
@@ -51,7 +51,6 @@
             lazydocker
             kubectl
             typescript
-            docker
             go
             air
             templ
@@ -69,7 +68,6 @@
             k9s
             kubectx
             gum
-	          # azure-cli
           ];
         };
       });

@@ -46,10 +46,6 @@ alias conf="nvim ~/.zshrc"
 alias kns='kubens'
 alias ktx='kubectx'
 
-# if [ $(uname -o) = "GNU/Linux" ]; then
-# 	alias docker='/Docker/host/bin/docker.exe'
-# fi
-
 # Make fzf default to ripgrep
 if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files'
@@ -117,4 +113,3 @@ export NVM_DIR="$HOME/.nvm"
 autoload -U +X bashcompinit && bashcompinit
 
 eval "$(starship init zsh)"
-export PATH="/home/cliff/tools/bin:$PATH"
