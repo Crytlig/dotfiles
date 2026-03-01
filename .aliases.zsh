@@ -12,6 +12,7 @@ alias tfda='terraform destroy -auto-approve'
 alias tfc='terraform console'
 
 alias nopencode='nix run nixpkgs#opencode'
+alias docks='docker sandbox'
 
 myip() {
   local ip=$(curl -s icanhazip.com)
