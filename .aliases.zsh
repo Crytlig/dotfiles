@@ -11,15 +11,7 @@ alias tfd='terraform destroy'
 alias tfda='terraform destroy -auto-approve'
 alias tfc='terraform console'
 
-## Terragrunt
-alias tg='terragrunt'
-alias tgadir="terragrunt run-all apply --terragrunt-ignore-external-dependencies --terragrunt-non-interactive"
-alias tgddir="terragrunt run-all destroy --terragrunt-ignore-external-dependencies --terragrunt-non-interactive"
-alias tgpdir="terragrunt run-all plan --terragrunt-ignore-external-dependencies --terragrunt-non-interactive"
-
-## Python.. Duh
-alias py=python3.13
-
+alias nopencode='nix run nixpkgs#opencode'
 
 myip() {
   local ip=$(curl -s icanhazip.com)
@@ -34,13 +26,6 @@ myip() {
 ## Stupid aliases basically to just open nv in temporary
 ## mode and write to same files again and again
 alias standup='nv ~/repos/next/documents/stand_up'
-alias prcom='nv ~/repos/next/documents/pr_coments'
-
-
-# danger zone
-alias gagacp='ga . && gc --amend --no-edit && gpf'
-alias gagac='ga . && gc --amend --no-edit '
-
 
 delete_workflow_runs() {
     set -eo pipefail
