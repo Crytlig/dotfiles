@@ -13,6 +13,27 @@ alias tfc='terraform console'
 
 alias nopencode='nix run nixpkgs#opencode'
 
+getbin() {
+    local uri=$1
+    local name=$2
+    local target="$HOME/tools"
+
+    if [ ! -d "$target" ]; then
+        mkdir "$target"
+    fi
+
+    cmd="curl -L"
+    if [ -n "$name" ]; then
+        cmd+=" -o $name "
+    else
+        cmd+="O"
+    fi
+
+    echo "$cmd $uri"
+    eval $cmd $uri
+}
+
+
 myip() {
   local ip=$(curl -s icanhazip.com)
 
